@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: contato-service-migration
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: contato-service-migration
+  template:
+    metadata:
+      labels:
+        app: contato-service-migration
+    spec:
+      containers:
+        - name: contato-service-migration
+          image: netiim/contato-service-migrations:7
+          command: [ "sleep", "infinity" ] # Mantém o container rodando sem finalizar
+          env:
+            - name: ConnectionStrings__DefaultConnection
+              value: "Server=sql-server;Database=TechChallenge;User ID=sa;Password=YourStrongPassword1!;TrustServerCertificate=True;"

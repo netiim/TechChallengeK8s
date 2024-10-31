@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: localizacao-service
+spec:
+  replicas: 2  # Número de réplicas para garantir alta disponibilidade
+  selector:
+    matchLabels:
+      app: localizacao-service
+  template:
+    metadata:
+      labels:
+        app: localizacao-service
+    spec:
+      containers:
+      - name: localizacao-service
+        image: netiim/localizacao-service:latest
+        ports:
+        - containerPort: 8080
+        envFrom:
+        - configMapRef:
+            name: localizacao-config  # Referenciando o ConfigMap para variáveis de ambiente

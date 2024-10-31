@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: rabbit-mq
+spec:
+  ports:
+    - name: amqp  # Nome para a porta AMQP
+      port: 5672  # Porta AMQP para conexões de aplicativos
+      targetPort: 5672
+    - name: management  # Nome para a porta de administração
+      port: 15672  # Porta de administração (usada para acessar via navegador)
+      targetPort: 15672
+      nodePort: 31672  # Escolha uma porta para expor externamente (deve estar entre 30000 e 32767)
+  selector:
+    app: rabbitmq
+  type: NodePort  # Alterado para permitir acesso externo

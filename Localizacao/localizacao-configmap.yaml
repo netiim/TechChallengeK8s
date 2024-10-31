@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: localizacao-config
+data:
+  MONGO_DB_HOST: "mongo"  # Nome do serviço do MongoDB
+  MONGO_DB_PORT: "27017"  # Porta do MongoDB
+  MONGO_DB_NAME: "localizacao"  # Nome do banco de dados usado para a API

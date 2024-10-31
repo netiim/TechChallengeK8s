@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: contato-service
+spec:
+  replicas: 2  # Número de réplicas para alta disponibilidade
+  selector:
+    matchLabels:
+      app: contato-service
+  template:
+    metadata:
+      labels:
+        app: contato-service
+    spec:
+      containers:
+      - name: contato-service
+        image: netiim/api-tech-challenge:14
+        ports:
+        - containerPort: 8080 
+        resources:
+          limits:
+            cpu: "500m"
+            memory: "256Mi"
+          requests:
+            cpu: "250m"
+            memory: "128Mi"
