@@ -1,10 +1,10 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: worker-get-service
+  name: worker-delete-service
 spec:
   selector:
-    app: contato-get-worker
+    app: contato-delete-worker
   ports:
     - protocol: TCP
       port: 8080

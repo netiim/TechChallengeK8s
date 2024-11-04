@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: contato-get-worker
+  name: contato-update-worker
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: contato-get-worker
+      app: contato-update-worker
   template:
     metadata:
       labels:
-        app: contato-get-worker
+        app: contato-update-worker
     spec:
       containers:
-        - name: contato-get
-          image: netiim/contato-get:7
+        - name: contato-update
+          image: netiim/contato-put:10
           ports:
             - containerPort: 8080
           resources:

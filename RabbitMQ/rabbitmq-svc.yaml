@@ -11,6 +11,9 @@ spec:
       port: 15672  # Porta de administração (usada para acessar via navegador)
       targetPort: 15672
       nodePort: 31672  # Escolha uma porta para expor externamente (deve estar entre 30000 e 32767)
+    - name: prometheus  # Nome para a porta de administração
+      port: 15692  # Porta de administração (usada para acessar via navegador)
+      targetPort: 15692
   selector:
     app: rabbitmq
   type: NodePort  # Alterado para permitir acesso externo

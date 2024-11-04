@@ -1,10 +1,10 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: worker-get-service
+  name: worker-post-service
 spec:
   selector:
-    app: contato-get-worker
+    app: contato-post-worker
   ports:
     - protocol: TCP
       port: 8080

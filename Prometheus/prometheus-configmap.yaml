@@ -1,0 +1,28 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: prometheus-config
+  labels:
+    app: prometheus
+data:
+  prometheus.yml: |
+    global:
+      scrape_interval: 5s
+
+    scrape_configs:
+      - job_name: 'prometheus'
+        static_configs:
+          - targets: ['localhost:9090']
+
+      - job_name: 'workers'
+        static_configs:
+          - targets: ['worker-get-service:8080', 'worker-delete-service:8080', 'worker-post-service:8080', 'worker-update-service:8080']
+
+      - job_name: 'api'
+        static_configs:
+          - targets: ['contato-service:80', 'localizacao-service:80']
+      
+      - job_name: 'rabbitmq'
+        static_configs:
+          - targets: ['rabbit-mq:15692']
+

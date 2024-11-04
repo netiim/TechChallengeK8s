@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: contato-get-worker
+  name: contato-delete-worker
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: contato-get-worker
+      app: contato-delete-worker
   template:
     metadata:
       labels:
-        app: contato-get-worker
+        app: contato-delete-worker
     spec:
       containers:
-        - name: contato-get
-          image: netiim/contato-get:7
+        - name: contato-delete
+          image: netiim/contato-delete:6
           ports:
             - containerPort: 8080
           resources:
