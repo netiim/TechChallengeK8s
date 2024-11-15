@@ -19,8 +19,8 @@ spec:
       - name: rabbitmq
         image: netiim/rabbitmq:1
         envFrom:
-        - configMapRef:
-            name: rabbitmq-config
+        - secretRef:
+            name: rabbitmq-secret
         ports:
         - containerPort: 5672  # Porta do RabbitMQ para comunicação AMQP
         - containerPort: 15672  # Porta de administração do RabbitMQ
