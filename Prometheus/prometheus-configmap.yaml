@@ -4,6 +4,9 @@ metadata:
   name: prometheus-config
   labels:
     app: prometheus
+  annotations:
+    config.kubernetes.io/version: "v1.0"
+    description: "Configurações de scraping do Prometheus para monitoramento de métricas"    
 data:
   prometheus.yml: |
     global:

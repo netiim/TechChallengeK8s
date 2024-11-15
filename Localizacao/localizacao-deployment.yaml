@@ -2,8 +2,13 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: localizacao-service
+  annotations:
+    app.kubernetes.io/version: "1.2.0"
+    prometheus.io/scrape: "true"
+    prometheus.io/port: "8080"
+    description: "API com os endpoint responsáveis para realizar o mapeamento dos DDD existem no Brasil, com as suas respectivas regiões."  
 spec:
-  replicas: 2  # Número de réplicas para garantir alta disponibilidade
+  replicas: 2  
   selector:
     matchLabels:
       app: localizacao-service

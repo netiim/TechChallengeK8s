@@ -1,14 +1,14 @@
 apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler  
 metadata:  
-  name: contato-get-worker-hpa  
+  name: contato-post-worker-hpa  
   annotations:
     description: "HPA para escalar o worker de processamento de mensagens da fila"
 spec:  
   scaleTargetRef:  
     apiVersion: apps/v1  
     kind: Deployment  
-    name: contato-get-worker
+    name: contato-post-worker
   minReplicas: 1  
   maxReplicas: 10  
   metrics:  

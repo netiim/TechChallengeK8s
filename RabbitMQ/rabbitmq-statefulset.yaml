@@ -2,6 +2,8 @@ apiVersion: apps/v1
 kind: StatefulSet
 metadata:
   name: rabbitmq
+  annotations:
+    description: "StatefulSet para armazenamento persistente do RabbitMq"
 spec:
   serviceName: "rabbitmq"
   replicas: 1

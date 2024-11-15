@@ -1,6 +1,8 @@
 apiVersion: v1
 kind: ServiceAccount
 metadata:
+  annotations:
+    description: "Utilizado para coletar métricas sobre o desempenho dos pods, utilizado no hpa"
   labels:
     k8s-app: metrics-server
   name: metrics-server

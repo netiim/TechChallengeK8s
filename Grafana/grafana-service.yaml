@@ -4,6 +4,8 @@ metadata:
   name: grafana-service
   labels:
     app: grafana
+  annotations:
+    prometheus.io/scrape: "false" 
 spec:
   type: NodePort
   ports:

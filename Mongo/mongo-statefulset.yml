@@ -2,6 +2,8 @@ apiVersion: apps/v1
 kind: StatefulSet
 metadata:
   name: mongo
+  annotations:
+    description: "StatefulSet para armazenamento persistente do MongoDb"
 spec:
   serviceName: "mongo"
   replicas: 1  

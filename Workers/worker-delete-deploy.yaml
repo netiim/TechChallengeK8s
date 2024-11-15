@@ -2,6 +2,11 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: contato-delete-worker
+  annotations:
+    app.kubernetes.io/version: "1.2.0"
+    prometheus.io/scrape: "true"
+    prometheus.io/port: "8080"
+    description: "Worker responsável por processar mensagens de fila"
 spec:
   replicas: 1
   selector:

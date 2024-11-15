@@ -4,6 +4,9 @@ metadata:
   name: grafana-deployment
   labels:
     app: grafana
+  annotations:
+    app.kubernetes.io/version: "1.2.0"
+    description: "Serviço para criação de gráficos para podermos monitorar os serviços"    
 spec:
   replicas: 1
   selector:
