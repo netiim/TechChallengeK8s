@@ -14,9 +14,12 @@ spec:
     spec:
       containers:
         - name: contato-update
-          image: netiim/contato-put:10
+          image: netiim/contato-put:12
           ports:
             - containerPort: 8080
+          envFrom:
+          - secretRef:
+              name: connection-strings-secrets 
           resources:
             limits:
               cpu: "500m"

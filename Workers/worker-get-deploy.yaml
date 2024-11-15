@@ -14,9 +14,12 @@ spec:
     spec:
       containers:
         - name: contato-get
-          image: netiim/contato-get:7
+          image: netiim/contato-get:10
           ports:
             - containerPort: 8080
+          envFrom:
+          - secretRef:
+              name: connection-strings-secrets                 
           resources:
             requests:
               cpu: "10m"

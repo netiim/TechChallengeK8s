@@ -14,9 +14,12 @@ spec:
     spec:
       containers:
       - name: localizacao-service
-        image: netiim/localizacao-service:latest
+        image: netiim/localizacao-service:8
         ports:
         - containerPort: 8080
         envFrom:
-        - configMapRef:
-            name: localizacao-config  # Referenciando o ConfigMap para variáveis de ambiente
+        - secretRef:
+            name: connection-strings-secrets
+        
+        
+

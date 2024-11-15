@@ -29,6 +29,18 @@ spec:
           value: "Y"
         - name: MSSQL_PID
           value: "Developer"
+        livenessProbe:  
+          tcpSocket:
+            port: 1433
+          periodSeconds: 10  
+          failureThreshold: 3  
+          initialDelaySeconds: 20
+        readinessProbe:  
+          tcpSocket:
+            port: 1433
+          periodSeconds: 10  
+          failureThreshold: 5  
+          initialDelaySeconds: 3  
         volumeMounts:
         - name: sql-server-storage
           mountPath: /var/opt/mssql

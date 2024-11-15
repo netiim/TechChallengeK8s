@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: contato-service
 spec:
-  replicas: 2  # Número de réplicas para alta disponibilidade
+  replicas: 2  
   selector:
     matchLabels:
       app: contato-service
@@ -14,9 +14,12 @@ spec:
     spec:
       containers:
       - name: contato-service
-        image: netiim/api-tech-challenge:14
+        image: netiim/api-tech-challenge:18
         ports:
         - containerPort: 8080 
+        envFrom:
+        - secretRef:
+            name: connection-strings-secrets
         resources:
           limits:
             cpu: "500m"
