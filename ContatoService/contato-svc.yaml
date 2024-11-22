@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: contato-get-service
+  name: contato-service
   annotations:
     prometheus.io/scrape: "true"
     prometheus.io/path: "/metrics"
